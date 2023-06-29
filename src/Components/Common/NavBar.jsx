@@ -11,8 +11,8 @@ export default function NavBar() {
                 <HStack className="nav-links" p="20px" spacing="5">
                     <NavLink to="#">Longsaar Francis</NavLink>
                     <Spacer />
-                    <NavLink to="#about">About me</NavLink>
-                    <NavLink to="#projects">My works</NavLink>
+                    <a href="#about">About me</a>
+                    <a href="#projects">My works</a>
                     <NavLink to="#contact">Contact</NavLink>
                     <NavLink to="#donate">
                         <Button className="donate-btn" leftIcon={<FcDonate />}>Say Thanks</Button>
