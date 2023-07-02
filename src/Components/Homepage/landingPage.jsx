@@ -1,25 +1,25 @@
-import { Box, Heading, Stack, VStack, Text, useMediaQuery, Image, Button, Grid, Spacer } from "@chakra-ui/react";
+import { Box, Heading, Stack, Text, Image, Spacer, Divider, IconButton, Button } from "@chakra-ui/react";
 import NavBar from "../Common/NavBar";
 import ProfilePicture from "../Assets/Images/Portcover.jpg"
 import styled from "@emotion/styled";
 import ProjectCard from "../Common/ProjectCard";
 import Project1 from "../Assets/Images/Img.svg";
 import project2 from "../Assets/Images/Img(1).svg";
-import Project3 from "../Assets/Images/Img(2).svg";
-import project4 from "../Assets/Images/Img(3).svg";
 import Testimmonials from "../Common/Testimonials/Testimonials";
+import Donations from "../Common/Donations/Donation";
+import SolidButton from "../Common/SolidButton";
+import { FaFacebook, FaLinkedin, FaTwitter } from "react-icons/fa";
 
 
 
 function LandingPage() {
-    const [isMobileDevice] = useMediaQuery('(max-width: 700px)')
     return (
         <Wrapper>
-            <Box color="white">
+            <Box>
                 <NavBar />
                 <Box>
                     <Stack>
-                        <Heading fontSize="4xl" textAlign="center">Robustful Website Development for Your Brand</Heading>
+                        <Heading mt={8} fontSize="4xl" textAlign="center">Robustful Website Development for Your Brand</Heading>
                     </Stack>
 
                     <Spacer boxSize="100px" />
@@ -31,12 +31,20 @@ function LandingPage() {
                                 experience building scalable, fast, responsive, and lightweight websites. I am steadfast in completing tasks
                                 and projects within designated periods.
                             </Text>
-                            <Button mt={10} borderRadius={15} w="200px" p="15px 30px" bgColor={"#FF9142"}>Learn more about me</Button>
+                            <div className="learn-more-btn">
+                                <SolidButton title="Learn More About Me" />
+                            </div>
                         </Stack>
                         <Image borderRadius="10px" width="350px" src={ProfilePicture} alt="Longsaar Francis" />
                     </Box>
 
                     <div className="project-highlight-container" id="projects">
+
+                        <div className="expertise-container">
+                            <Heading>What I Can Do For you</Heading>
+                            <Text>I can transform what you picture as a website into existence</Text>
+                        </div>
+
                         <Heading mb="50px" textAlign="center" fontSize="30px">My projects highlight</Heading>
                         <div className="project-list">
                             <ProjectCard title="wed design" client="Dele balogun" work="Book library" projectImage={Project1} />
@@ -47,8 +55,26 @@ function LandingPage() {
                             <ProjectCard title="Web development" client="Crac World" work="Real Esate website" projectImage={project2} />
                         </div>
                     </div>
+                    <div className="divider-container">
+                        <hr />
+                    </div>
+                    <Divider color='white' />
                     <div className="testimonial">
                         <Testimmonials />
+                    </div>
+                    <div>
+                        <footer className="footer-container">
+                            <Heading color="#FF9142">Get In Touch With Me</Heading>
+                            <address>Mai Adiko, Rayfield Jos</address>
+                            <address>Email: owner@longsaarfrancis.com</address>
+                            <Stack direction="row">
+                                <IconButton as={FaLinkedin}></IconButton>
+                                <IconButton as={FaTwitter}></IconButton>
+                                <IconButton as={FaFacebook}></IconButton>
+                            </Stack>
+                            <hr />
+                            <Text>Copyright 2023, deigned by Jahrulez</Text>
+                        </footer>
                     </div>
                 </Box>
             </Box>
@@ -60,6 +86,8 @@ export default LandingPage;
 
 const Wrapper = styled.section`
     .project-highlight-container{
+        display: flex;
+        flex-direction: column;
         margin-top: 100px;
     }
     .project-highlight-container .project-list{
@@ -73,6 +101,8 @@ const Wrapper = styled.section`
     @media(max-width: 700px){
         .project-highlight-container .project-list{
         width: auto;
+        justify-content: center;
+        align-items: center;
         grid-template-columns: 1fr;
         }
     }
@@ -81,5 +111,23 @@ const Wrapper = styled.section`
         width: auto;
         grid-template-columns: 1fr 1fr;
         }
+    }
+    .divider-container > hr{
+        display: flex;
+        width: 90%;
+        margin: 20px auto;
+    }
+    .footer-container{
+        padding: 15px;
+        background: #020220;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+    .footer-container > hr{
+        display: flex;
+        clear: both;
+        width: 90%;
     }
 `

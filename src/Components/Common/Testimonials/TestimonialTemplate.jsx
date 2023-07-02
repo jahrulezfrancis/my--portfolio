@@ -1,14 +1,19 @@
-import { Heading, Text } from "@chakra-ui/react";
+import { Flex, Heading, Stack, Text } from "@chakra-ui/react";
 import { ClientList } from "./ClientList";
 
-export default function TestimmonialTemplate(props) {
-    const { clientName, clientMessage } = props;
+export default function TestimonialTemplate() {
     return (
         <div className="testimonial-template-container">
-            <div className="clients-container">
-                <Heading>{clientName}</Heading>
-                <Text>{clientMessage}</Text>
-            </div>
+            <Flex justify="center" flex="2" gap={10} flexWrap="wrap">
+                {ClientList.map((testimonial) => {
+                    return (
+                        <Stack width={300}>
+                            <Heading>{testimonial.client}</Heading>
+                            <Text>{testimonial.Message}</Text>
+                        </Stack>
+                    )
+                })}
+            </Flex>
         </div>
     )
 }

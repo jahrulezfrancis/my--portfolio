@@ -1,8 +1,9 @@
-import { HStack, Box, Icon, Spacer, Button } from "@chakra-ui/react";
+import { HStack, Spacer, Button } from "@chakra-ui/react";
 import { NavLink } from "react-router-dom";
 import { FcDonate } from "react-icons/fc"
 import styled from "@emotion/styled";
 import "./index.css"
+import Donations from "./Donations/Donation";
 
 export default function NavBar() {
     return (
@@ -15,7 +16,7 @@ export default function NavBar() {
                     <a href="#projects">My works</a>
                     <NavLink to="#contact">Contact</NavLink>
                     <NavLink to="#donate">
-                        <Button className="donate-btn" leftIcon={<FcDonate />}>Say Thanks</Button>
+                        <Donations />
                     </NavLink>
                 </HStack>
             </div>
@@ -34,6 +35,7 @@ const Wrapper = styled.section`
             font-weight: 500;
             line-height: normal;
             text-transform: uppercase;
+            box-shadow: 5px 5px 5px #010222;
     }
     .navbar-container .nav-links
     .donate-btn{
