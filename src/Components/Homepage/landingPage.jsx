@@ -1,4 +1,4 @@
-import { Box, Heading, Stack, Text, Image, Spacer, Divider, IconButton, Button } from "@chakra-ui/react";
+import { Box, Heading, Stack, Text, Image, Spacer, Divider, IconButton, Button, List, ListItem } from "@chakra-ui/react";
 import NavBar from "../Common/NavBar";
 import ProfilePicture from "../Assets/Images/Portcover.jpg"
 import styled from "@emotion/styled";
@@ -27,12 +27,15 @@ function LandingPage() {
                         <Stack spacing={2} align="start" justify="center">
                             <Heading fontSize="25px">have you heard about me? </Heading>
                             <Text style={{ width: "350px" }} color="#A8A8A8">
-                                I am a front-end developer with a special focus on building Javascript web systems. I have years of
-                                experience building scalable, fast, responsive, and lightweight websites. I am steadfast in completing tasks
-                                and projects within designated periods.
+                                I am a front-end developer with a special focus on building JavaScript/ReactJS web systems with over 3
+                                years of experience building scalable, fast, responsive, and lightweight websites. I don't code for my personal
+                                consumption so I spend most of my time reading user-experience reports from surveys and use the results to make my
+                                development process as effective as possible for best user experience. I am solemn with deadlines and don't take projects
+                                of any type or size for granted. I believe in people's ideas as well as the need for keeping it private.
                             </Text>
                             <div className="learn-more-btn">
                                 <SolidButton title="Learn More About Me" />
+
                             </div>
                         </Stack>
                         <Image borderRadius="10px" width="350px" src={ProfilePicture} alt="Longsaar Francis" />
@@ -42,7 +45,12 @@ function LandingPage() {
 
                         <div className="expertise-container">
                             <Heading>What I Can Do For you</Heading>
-                            <Text>I can transform what you picture as a website into existence</Text>
+                            <List>
+                                <ListItem>I can make your existing website as responsive as posible</ListItem>
+                                <ListItem>I can design a professional website for your brand or bussiness</ListItem>
+                                <ListItem>I can secure your website using latest technologies and protect your user data</ListItem>
+                                <ListItem>I can update your existing website and give it a mobile app speed with instant rendering</ListItem>
+                            </List>
                         </div>
 
                         <Heading mb="50px" textAlign="center" fontSize="30px">My projects highlight</Heading>
@@ -59,7 +67,7 @@ function LandingPage() {
                         <hr />
                     </div>
                     <Divider color='white' />
-                    <div className="testimonial">
+                    <div>
                         <Testimmonials />
                     </div>
                     <div>
