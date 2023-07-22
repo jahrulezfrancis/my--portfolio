@@ -1,14 +1,17 @@
-import { HStack, Spacer, Button } from "@chakra-ui/react";
+import { HStack, Spacer, Button, useColorMode, useMediaQuery } from "@chakra-ui/react";
 import { NavLink } from "react-router-dom";
 import { FcDonate } from "react-icons/fc"
 import styled from "@emotion/styled";
 import "./index.css"
 import Donations from "./Donations/Donation";
 
-export default function NavBar() {
+export default function NavBar(props) {
+    const {colorMode, toggleColorMode} = useColorMode();
+    const [isMobileDevice] = useMediaQuery('(max-width: 700px)')
+
     return (
         <Wrapper>
-            <div className="navbar-container">
+            <div style={{display: isMobileDevice ? "none" : ""}} className="navbar-container">
                 <HStack className="nav-links" p="20px" spacing="5">
                     <NavLink to="#">Longsaar Francis</NavLink>
                     <Spacer />
@@ -18,6 +21,7 @@ export default function NavBar() {
                     <NavLink to="#donate">
                         <Donations />
                     </NavLink>
+                    <Button onClick={toggleColorMode}>Change mode</Button>
                 </HStack>
             </div>
         </Wrapper>
@@ -28,7 +32,6 @@ export default function NavBar() {
 
 const Wrapper = styled.section`
     .navbar-container{
-            color: #FFF;
             font-size: 0.875rem;
             font-family: Rubik;
             font-style: normal;
