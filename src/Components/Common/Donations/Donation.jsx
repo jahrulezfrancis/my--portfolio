@@ -1,11 +1,11 @@
-import React from 'react'
-import {
-    Modal, HStack, IconButton, Text, useDisclosure, Button, ModalOverlay, ModalContent, ModalHeader,
-    ModalFooter, ModalBody, ModalCloseButton
-} from '@chakra-ui/react'
-import { BiLogoFlutter } from "react-icons/bi"
-import { FaCcMastercard } from "react-icons/fa"
+import React, { useState } from 'react'
+import {ReactComponent as MasterCard} from "../../../Assets/Images/mc_symbol.svg"
+import {ReactComponent as USDC} from "../../../Assets/Images/usd.svg"
 import SolidButton from '../SolidButton'
+import { Button, Modal, ModalOverlay, ModalContent, ModalHeader, ModalBody, ModalFooter, ModalCloseButton, useDisclosure, HStack, Icon } from '@chakra-ui/react';
+
+
+
 
 function Donations() {
     const { isOpen, onOpen, onClose } = useDisclosure()
@@ -20,11 +20,14 @@ function Donations() {
                     backdropInvert='80%'
                     backdropBlur='2px'
                 />
-                <ModalContent width={"auto"}>
+                <ModalContent>
                     <ModalHeader>Donation</ModalHeader>
                     <ModalCloseButton />
                     <ModalBody>
-                        <Text>Custom backdrop filters!</Text>
+                    <HStack>
+                        <Icon color="#FF9142" fontSize="70px" as={MasterCard} />
+                        <Icon color="" fontSize="60px" as={USDC} />
+                    </HStack>
                     </ModalBody>
                     <ModalFooter>
                         <Button onClick={onClose}>Close</Button>
