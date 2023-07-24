@@ -10,6 +10,6 @@ const config = {
 }
 
 // 3. extend the theme
-const Theme = extendTheme({ config })
+const theme = extendTheme({ config })
 
-export default Theme;
+export default theme
