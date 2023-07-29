@@ -43,9 +43,10 @@ function LandingPage() {
                             <Heading fontSize="1.75rem">Things I Can Do For you</Heading>
                             <List>
                                 <ListItem>I can build you a professional website for your brand or bussiness</ListItem>
-                                <ListItem>I can optimize existing websites performance </ListItem>
-                                <ListItem>I can create a personal / commercial fullstack responsive website using wordpress</ListItem>
+                                <ListItem>I can optimize your existing websites for better performance</ListItem>
+                                <ListItem>I can develop you a personal / commercial fullstack responsive website using wordpress</ListItem>
                                 <ListItem>I can update your existing website and give it a mobile app speed with instant rendering</ListItem>
+                                <ListItem>I can convert a html side to a single page application using React</ListItem>
                                 <ListItem>I can integrate third party tools to an existing website such as payment gateways, woocommerce, auto mail responders, etc.</ListItem>
                             </List>
                         </Stack>
@@ -82,11 +83,8 @@ function LandingPage() {
                                 <a href="https://twitter.com/Jahrulezfrancis" target="_">
                                     <Icon as={FaTwitter} />
                                 </a>
-                                <a href="https://www.facebook.com/jahrulezfrancis" target="_">
-                                    <Icon as={FaFacebook} />
-                                </a>
                             </Stack>
-                            <Text>Copyright 2023, deigned by Jahrulez</Text>
+                            <Text>Copyright © 2023, deigned by Longsaar Francis(Jahrulez)</Text>
                         </footer>
                     </div>
                 </Box>
