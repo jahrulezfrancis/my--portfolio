@@ -1,12 +1,10 @@
-import { HStack, Spacer, Button, useColorMode, useMediaQuery } from "@chakra-ui/react";
+import { HStack, Spacer, useMediaQuery } from "@chakra-ui/react";
 import { NavLink } from "react-router-dom";
-import { FcDonate } from "react-icons/fc"
 import styled from "@emotion/styled";
 import "./index.css"
 import Donations from "./Donations/Donation";
 
 export default function NavBar(props) {
-    const { colorMode, toggleColorMode } = useColorMode();
     const [isMobileDevice] = useMediaQuery('(max-width: 700px)')
 
     return (
@@ -19,7 +17,6 @@ export default function NavBar(props) {
                     <a href="#projects">My works</a>
                     <NavLink to="#contact">Contact</NavLink>
                     <Donations />
-                    {/* <Button onClick={toggleColorMode}>Change mode</Button> */}
                 </HStack>
             </div>
         </Wrapper>
