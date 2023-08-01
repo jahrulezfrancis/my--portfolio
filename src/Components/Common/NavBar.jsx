@@ -4,18 +4,18 @@ import styled from "@emotion/styled";
 import "./index.css"
 import Donations from "./Donations/Donation";
 
-export default function NavBar(props) {
+export default function NavBar() {
     const [isMobileDevice] = useMediaQuery('(max-width: 700px)')
 
     return (
         <Wrapper>
             <div style={{ display: isMobileDevice ? "none" : "" }} className="navbar-container">
                 <HStack className="nav-links" p="20px" spacing="5">
-                    <NavLink to="#">Longsaar Francis</NavLink>
+                    <NavLink to="/">Longsaar Francis</NavLink>
                     <Spacer />
                     <a href="#about">About me</a>
                     <a href="#projects">My works</a>
-                    <NavLink to="#contact">Contact</NavLink>
+                    <a href="#contact">Contact</a>
                     <Donations />
                 </HStack>
             </div>
