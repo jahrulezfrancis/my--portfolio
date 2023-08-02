@@ -10,8 +10,10 @@ function App() {
     <div className='app'>
       <NavBar />
       <Routes>
-        <Route path='/' element={<LandingPage />} />
-        <Route path='*' element={<PageNotFound />} />
+        <Route path='/'>
+          <Route index element={<LandingPage />} />
+          <Route path='*' element={<PageNotFound />} />
+        </Route>
       </Routes>
     </div>
   );
