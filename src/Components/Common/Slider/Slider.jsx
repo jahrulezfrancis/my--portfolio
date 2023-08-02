@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { Button, Flex, Image, Stack, Heading, Icon, Text, useMediaQuery, Divider, Avatar, VStack } from "@chakra-ui/react";
+import { useState, } from "react";
+import { Button, Stack, Heading, Icon, Text, useMediaQuery, Divider, Avatar, VStack } from "@chakra-ui/react";
 import Slide1 from "../../../Assets/Images/Img(1).svg"
 import Slide2 from "../../../Assets/Images/Img(2).svg"
 import Slide3 from "../../../Assets/Images/Img(3).svg"
@@ -32,6 +32,14 @@ function TestimonialSlider() {
             imgURL: Slide3,
         }
     ]
+
+    setTimeout(() => {
+        nextSlide()
+    }, 5000);
+
+    setTimeout(() => {
+        setSlide(1)
+    }, 15000);
 
 
     const nextSlide = () => {
