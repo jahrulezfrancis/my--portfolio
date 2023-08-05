@@ -16,7 +16,6 @@ function LandingPage() {
     return (
         <Wrapper>
             <Box>
-                <NavBar />
                 <Box>
                     <Stack>
                         <Heading mt={8} fontSize="4xl" textAlign="center">Robustful Website Development for Your Brand</Heading>
@@ -70,7 +69,7 @@ function LandingPage() {
                     <div className="testimonial-container">
                         <TestimonialSlider />
                     </div>
-                    <div>
+                    <div id="contact">
                         <footer className="footer-container">
                             <hr />
                             <Heading fontSize="28px" color="#FF9142">Get In Touch With Me</Heading>

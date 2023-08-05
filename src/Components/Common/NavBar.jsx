@@ -1,5 +1,5 @@
 import { HStack, Spacer, useMediaQuery } from "@chakra-ui/react";
-import { NavLink } from "react-router-dom";
+import { NavLink, Outlet } from "react-router-dom";
 import styled from "@emotion/styled";
 import "./index.css"
 import Donations from "./Donations/Donation";
@@ -19,6 +19,7 @@ export default function NavBar() {
                     <Donations />
                 </HStack>
             </div>
+            <Outlet />
         </Wrapper>
     )
 }
