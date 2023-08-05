@@ -13,8 +13,8 @@ export default function NavBar() {
                 <HStack className="nav-links" p="20px" spacing="5">
                     <NavLink to="/">Longsaar Francis</NavLink>
                     <Spacer />
-                    <a href="#about">About me</a>
-                    <a href="#projects">My works</a>
+                    <a href="#about">About</a>
+                    <a href="#projects">Projects</a>
                     <a href="#contact">Contact</a>
                     <Donations />
                 </HStack>

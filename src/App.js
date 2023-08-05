@@ -1,9 +1,9 @@
 import React from 'react';
 import './App.css';
 import { Route, Routes } from 'react-router-dom';
-import { LandingPage } from './Components/Homepage/Index';
 import PageNotFound from './Components/Common/PageNotFound';
 import NavBar from './Components/Common/NavBar';
+import Home from './Components/Homepage/Index';
 
 function App() {
   return (
@@ -11,7 +11,7 @@ function App() {
       <NavBar />
       <Routes>
         <Route path='/'>
-          <Route index element={<LandingPage />} />
+          <Route index element={<Home />} />
           <Route path='*' element={<PageNotFound />} />
         </Route>
       </Routes>

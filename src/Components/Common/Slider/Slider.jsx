@@ -1,5 +1,6 @@
 import { useState, } from "react";
 import { Button, Stack, Heading, Icon, Text, useMediaQuery, Divider, Avatar, VStack } from "@chakra-ui/react";
+import { motion } from "framer-motion";
 import Slide1 from "../../../Assets/Images/Img(1).svg"
 import Slide2 from "../../../Assets/Images/Img(2).svg"
 import Slide3 from "../../../Assets/Images/Img(3).svg"
@@ -7,7 +8,7 @@ import styled from "@emotion/styled";
 import { FaQuoteRight } from "react-icons/fa";
 
 
-function TestimonialSlider() {
+function TestimonialSlider(id) {
     const [isMobileDevice] = useMediaQuery('(max-width: 700px)');
 
     const [slide, setSlide] = useState(1)
@@ -32,14 +33,6 @@ function TestimonialSlider() {
             imgURL: Slide3,
         }
     ]
-
-    setTimeout(() => {
-        nextSlide()
-    }, 5000);
-
-    setTimeout(() => {
-        setSlide(1)
-    }, 15000);
 
 
     const nextSlide = () => {
@@ -71,13 +64,24 @@ function TestimonialSlider() {
                         Slides.map((carousel) => {
                             return (
                                 (carousel.index === slide) &&
-                                <VStack key={carousel.index} padding={8} justify="center" align="center" gap={2} width="300px" borderRadius={10} boxShadow="0 2px 4px rgba(255, 255, 255, 0.2)">
-                                    <Icon as={FaQuoteRight} />
-                                    <Text textAlign="center">{carousel.message}</Text>
-                                    <Divider color="white" width="10%" />
-                                    <Avatar name={carousel.client} src={carousel.imgURL} />
-                                    <Text>{carousel.client}</Text>
-                                </VStack>
+                                <motion.div
+                                    className=""
+                                    layoutId={id}
+                                    // layout
+                                    initial={{ opacity: 0, x: -100 }}
+                                    animate={{ opacity: 2, x: 0 }}
+                                    exit={{ opacity: 0, x: 200 }}
+                                    transition={{ duration: 0.3 }}
+                                >
+
+                                    <VStack key={carousel.index} padding={8} justify="center" align="center" gap={2} width="300px" borderRadius={10} boxShadow="0 2px 4px rgba(255, 255, 255, 0.2)">
+                                        <Icon as={FaQuoteRight} />
+                                        <Text textAlign="center">{carousel.message}</Text>
+                                        <Divider color="white" width="10%" />
+                                        <Avatar name={carousel.client} src={carousel.imgURL} />
+                                        <Text>{carousel.client}</Text>
+                                    </VStack>
+                                </motion.div>
                             )
                         })
                     }

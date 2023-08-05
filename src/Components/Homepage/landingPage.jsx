@@ -1,5 +1,5 @@
 import { Box, Heading, Stack, Text, Image, Spacer, Icon, List, ListItem, useMediaQuery } from "@chakra-ui/react";
-import NavBar from "../Common/NavBar";
+import { motion } from "framer-motion";
 import ProfilePicture from "../../Assets/Images/Portcover.jpg"
 import styled from "@emotion/styled";
 import ProjectCard from "../Common/ProjectCard";
@@ -10,7 +10,7 @@ import TestimonialSlider from "../Common/Slider/Slider";
 
 
 
-function LandingPage() {
+function LandingPage(id) {
     const [isMobileDevice] = useMediaQuery('(max-width: 700px)')
     const [isTabletDevice] = useMediaQuery('(min-width: 600px and max-width: 1000px)')
     return (
@@ -40,14 +40,25 @@ function LandingPage() {
                     <div className="expertise-container">
                         <Stack className="expertise">
                             <Heading fontSize="1.75rem">Things I Can Do For you</Heading>
-                            <List>
-                                <ListItem>I can build you a professional website for your brand or bussiness</ListItem>
-                                <ListItem>I can optimize your existing websites for better performance</ListItem>
-                                <ListItem>I can develop you a personal / commercial fullstack responsive website using wordpress</ListItem>
-                                <ListItem>I can update your existing website and give it a mobile app speed with instant rendering</ListItem>
-                                <ListItem>I can convert a html side to a single page application using React</ListItem>
-                                <ListItem>I can integrate third party tools to an existing website such as payment gateways, woocommerce, auto mail responders, etc.</ListItem>
-                            </List>
+                            <motion.div
+                                className="animation-container"
+                                layoutId={id}
+                                // layout
+                                initial={{ opacity: 0, x: -100 }}
+                                animate={{ opacity: 2, x: 0 }}
+                                exit={{ opacity: 0, x: 200 }}
+                                transition={{ duration: 2 }}
+                            >
+
+                                <List>
+                                    <ListItem>I can build you a professional website for your brand or bussiness</ListItem>
+                                    <ListItem>I can optimize your existing websites for better performance</ListItem>
+                                    <ListItem>I can develop you a personal / commercial fullstack responsive website using wordpress</ListItem>
+                                    <ListItem>I can update your existing website and give it a mobile app speed with instant rendering</ListItem>
+                                    <ListItem>I can convert a html side to a single page application using React</ListItem>
+                                    <ListItem>I can integrate third party tools to an existing website such as payment gateways, woocommerce, auto mail responders, etc.</ListItem>
+                                </List>
+                            </motion.div>
                         </Stack>
                     </div>
 
@@ -109,7 +120,7 @@ const Wrapper = styled.section`
         align-items: center;
         margin-top: 50px;
     }
-    .expertise-container .expertise > ul{
+    .expertise-container .expertise .animation-container > ul{
         list-style-type: square;
     }
     .project-highlight-container .project-list{
