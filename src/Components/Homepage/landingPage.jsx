@@ -5,7 +5,7 @@ import styled from "@emotion/styled";
 import ProjectCard from "../Common/ProjectCard";
 import Project1 from "../../Assets/Images/Img.svg";
 import project2 from "../../Assets/Images/Img(1).svg";
-import { FaFacebook, FaLinkedin, FaTwitter } from "react-icons/fa";
+import { FaLinkedin, FaTwitter } from "react-icons/fa";
 import TestimonialSlider from "../Common/Slider/Slider";
 
 
@@ -23,9 +23,9 @@ function LandingPage(id) {
 
                     <Spacer boxSize="100px" />
                     <Box id="about" display="flex" flexWrap="wrap" justifyContent={"space-around"}>
-                        <Stack spacing={2} align="start" justify="center">
+                        <Stack textAlign={isMobileDevice ? 'center' : 'start'} padding={10} spacing={2} align="start" justify="center">
                             <Heading fontSize="1.75rem">Have you heard about me? </Heading>
-                            <Text className="about" width={isMobileDevice ? "320px" : isTabletDevice ? "500px" : "600px"} color="#A8A8A8">
+                            <Text className="about" textAlign={"justify"} width={isMobileDevice ? "320px" : isTabletDevice ? "500px" : "600px"} color="#A8A8A8">
                                 I am a front-end engineer with a special focus on building React JS and WordPress web systems, with over 3 years
                                 of experience building scalable, fast, and visually stunning web solutions that elevate user experiences.
                                 I have a strong foundation in front-end engineering and a gracious passion for web development, which has enabled
@@ -50,7 +50,7 @@ function LandingPage(id) {
                                 transition={{ duration: 2 }}
                             >
 
-                                <List>
+                                <List color={'#A8A8A8'} textAlign={isMobileDevice ? 'center' : 'start'}> 
                                     <ListItem>I can build you a professional website for your brand or bussiness</ListItem>
                                     <ListItem>I can optimize your existing websites for better performance</ListItem>
                                     <ListItem>I can develop you a personal / commercial fullstack responsive website using wordpress</ListItem>
@@ -94,7 +94,7 @@ function LandingPage(id) {
                                     <Icon as={FaTwitter} />
                                 </a>
                             </Stack>
-                            <Text>Copyright © 2023, deigned by Longsaar Francis(Jahrulez)</Text>
+                            <Text textAlign={'center'}>Copyright © 2023 Longsaar Francis</Text>
                         </footer>
                     </div>
                 </Box>
@@ -112,6 +112,7 @@ const Wrapper = styled.section`
         flex-direction: column;
         align-items: center;
         margin-top: 100px;
+        padding: 10px;
     }
     .expertise-container{
         display: flex;
@@ -119,6 +120,7 @@ const Wrapper = styled.section`
         justify-content: center;
         align-items: center;
         margin-top: 50px;
+        padding: 20px;
     }
     .expertise-container .expertise .animation-container > ul{
         list-style-type: square;
@@ -175,5 +177,6 @@ const Wrapper = styled.section`
     .testimonial-container{
         display: flex;
         justify-content: center;
+        margin: 0px 10px;
     }
 `
