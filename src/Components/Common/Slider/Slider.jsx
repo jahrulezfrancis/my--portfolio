@@ -56,7 +56,7 @@ function TestimonialSlider(id) {
             <div className="slide-container">
                 <Stack mb={25} width="100%" align="center">
                     <Text color="#FF9142">Testimonials</Text>
-                    <Heading as="h6" fontSize="1.2rem">What my clients are saying about me!</Heading>
+                    <Heading as="h6" textAlign={'center'} fontSize="1.2rem">What my clients are saying about me!</Heading>
                 </Stack>
                 <div className="carousel-container">
                     {!isMobileDevice && <Button mr={5} onClick={prevSlide}>{"<<"}</Button>}
@@ -71,10 +71,11 @@ function TestimonialSlider(id) {
                                     initial={{ opacity: 0, x: -100 }}
                                     animate={{ opacity: 2, x: 0 }}
                                     exit={{ opacity: 0, x: 200 }}
-                                    transition={{ duration: 0.3 }}
+                                    transition={{ duration: 0.5 }}
+                                    key={carousel.index}
                                 >
 
-                                    <VStack key={carousel.index} padding={8} justify="center" align="center" gap={2} width="300px" borderRadius={10} boxShadow="0 2px 4px rgba(255, 255, 255, 0.2)">
+                                    <VStack padding={8} justify="center" align="center" gap={2} width="18.75em" borderRadius={10} boxShadow="0 2px 4px rgba(255, 255, 255, 0.2)">
                                         <Icon as={FaQuoteRight} />
                                         <Text textAlign="center">{carousel.message}</Text>
                                         <Divider color="white" width="10%" />
@@ -107,10 +108,11 @@ const Wrapper = styled.section`
             justify-contents: center;
             align-items: center;
             align-contents: center;
+            // padding: 20px;
         }
         .carousel-container{
             display: flex;
             align-items: center;
-            padding: 20px;
+            padding: 15px 0px;
         }
 `
