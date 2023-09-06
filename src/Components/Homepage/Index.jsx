@@ -10,7 +10,7 @@ const Home = (id) => {
 			initial={{ opacity: 0, x: -1100 }}
 			animate={{ opacity: 2, x: 0 }}
 			exit={{ opacity: 0, x: 200 }}
-			transition={{ duration: 0.8 }}
+			transition={{ duration: 1.0 }}
 		>
 			<LandingPage />
 		</motion.div>
