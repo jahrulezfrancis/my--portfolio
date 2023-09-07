@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import {ReactComponent as MasterCard} from "../../../Assets/Images/mc_symbol.svg"
-import {ReactComponent as USDC} from "../../../Assets/Images/usd.svg"
+import { ReactComponent as MasterCard } from "../../../Assets/Images/mc_symbol.svg"
+import { ReactComponent as USDC } from "../../../Assets/Images/usd.svg"
 import SolidButton from '../SolidButton'
 import { Button, Modal, ModalOverlay, ModalContent, ModalHeader, ModalBody, ModalFooter, ModalCloseButton, useDisclosure, HStack, Icon } from '@chakra-ui/react';
 
@@ -12,7 +12,7 @@ function Donations() {
 
     return (
         <>
-            <SolidButton onClick={onOpen} title="Donate" />
+            <SolidButton color='white' onClick={onOpen} title="View Resume" />
             <Modal isOpen={isOpen} onClose={onClose}>
                 <ModalOverlay
                     bg='light'
@@ -21,13 +21,13 @@ function Donations() {
                     backdropBlur='2px'
                 />
                 <ModalContent>
-                    <ModalHeader>Donation</ModalHeader>
+                    <ModalHeader>My Resume</ModalHeader>
                     <ModalCloseButton />
                     <ModalBody>
-                    <HStack>
-                        <Icon color="#FF9142" fontSize="70px" as={MasterCard} />
-                        <Icon color="" fontSize="60px" as={USDC} />
-                    </HStack>
+                        <HStack>
+                            <Icon color="#FF9142" fontSize="70px" as={MasterCard} />
+                            <Icon color="" fontSize="60px" as={USDC} />
+                        </HStack>
                     </ModalBody>
                     <ModalFooter>
                         <Button onClick={onClose}>Close</Button>
