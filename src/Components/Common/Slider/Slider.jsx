@@ -56,7 +56,7 @@ function TestimonialSlider(id) {
             <div className="slide-container">
                 <Stack mb={25} width="100%" align="center">
                     <Text color="#FF9142">Testimonials</Text>
-                    <Heading as="h6" textAlign={'center'} fontSize="1.2rem">What my clients are saying about me!</Heading>
+                    <Heading color="#e5e5e5" as="h6" textAlign={'center'} fontSize="1.2rem">What my clients are saying about me!</Heading>
                 </Stack>
                 <div className="carousel-container">
                     {!isMobileDevice && <Button mr={5} onClick={prevSlide}>{"<<"}</Button>}
