@@ -1,12 +1,17 @@
-import { Box, Heading, Stack, Text, Image, Spacer, Icon, List, ListItem, useMediaQuery } from "@chakra-ui/react";
+import { Box, Heading, Stack, Text, Image, Spacer, Icon, List, ListItem, useMediaQuery, HStack, VStack, Button, Flex, ListIcon } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import ProfilePicture from "../../Assets/Images/Portcover.jpg"
+import PinkElements from "../../Assets/Images/header-element.svg"
+import Background from "../../Assets/Images/background-image.svg"
+import MobileDevice from "../../Assets/Images/iPhone-X.svg"
+import StartUpLogo from "../../Assets/Images/web-startup.svg"
 import styled from "@emotion/styled";
 import ProjectCard from "../Common/ProjectCard";
 import Project1 from "../../Assets/Images/Img.svg";
 import project2 from "../../Assets/Images/Img(1).svg";
 import { FaLinkedin, FaTwitter } from "react-icons/fa";
 import TestimonialSlider from "../Common/Slider/Slider";
+import { BsPatchCheckFill } from "react-icons/bs";
 
 
 
@@ -15,168 +20,95 @@ function LandingPage(id) {
     const [isTabletDevice] = useMediaQuery('(min-width: 600px and max-width: 1000px)')
     return (
         <Wrapper>
-            <Box>
-                <Box>
-                    <Stack>
-                        <Heading mt={8} fontSize="4xl" textAlign="center">Robustful Website Development for Your Brand</Heading>
-                    </Stack>
+            <Box position='relative'>
+                <Heading textAlign='center' mt={10}>Bring your ideas into life with a perfect web signature</Heading>
+                <Image src={PinkElements} position='absolute' />
+                <Stack wrap={"wrap"} justify='center' mt="100px" gap={10} direction={isMobileDevice ? 'column' : "row"}>
+                    <VStack spacing={10} align='start' width={540}>
+                        <Heading >Have you heard about me?</Heading>
+                        <Text>I am a front-end engineer with a solid focus on building smart web systems with over 2 years of industrial experience building stunning web solutions. I have a strong foundation in front-end engineering and a gracious passion for web development, which has enabled me to build dynamic, responsive and powerful web applications for multiple industries. I spend quality time on reading user-experience reports to enhance my development process for a better experience. I am solemn with deadlines and don’t take projects of any type or size for granted. My development process is basically user-driven with an adoptable Software Development Life Circle(SDLC). I am actively seeking to learn and apply new technologies to advance my career and the establishments of my client. </Text>
+                        <Button color='white' borderRadius='6px' background='var(--Pink_ninja, #DD226D)'>Download resume</Button>
+                    </VStack>"
+                    <Image borderRadius='15px' width={486} objectFit='contain' height="500px" src={ProfilePicture} />
+                    <Image src={PinkElements} right='10' top={'600'} position='absolute' />
 
-                    <Spacer boxSize="100px" />
-                    <Box id="about" display="flex" flexWrap="wrap" justifyContent={"space-around"}>
-                        <Stack textAlign={isMobileDevice ? 'center' : 'start'} padding={10} spacing={2} align="start" justify="center">
-                            <Heading fontSize="1.75rem">Have you heard about me? </Heading>
-                            <Text className="about" textAlign={"justify"} width={isMobileDevice ? "320px" : isTabletDevice ? "500px" : "600px"} color="#A8A8A8">
-                                I am a front-end engineer with a special focus on building React JS and WordPress web systems, with over 3 years
-                                of experience building scalable, fast, and visually stunning web solutions that elevate user experiences.
-                                I have a strong foundation in front-end engineering and a gracious passion for web development, which has enabled
-                                me to build dynamic and responsive websites that are precisely suited to the specific needs of each client.
-                                I am solemn with deadlines and don't take projects of any type or size for granted because I believe people's ideas are as important.
-                                I am also interested in Cyber Security and open to any growth opportunity.
-                            </Text>
-                        </Stack>
-                        <Image borderRadius="10px" width="350px" src={ProfilePicture} alt="Longsaar Francis" />
-                    </Box>
-
-                    <div className="expertise-container">
-                        <Stack className="expertise">
-                            <Heading fontSize="1.75rem">Things I Can Do For you</Heading>
-                            <motion.div
-                                className="animation-container"
-                                layoutId={id}
-                                // layout
-                                initial={{ opacity: 0, x: -100 }}
-                                animate={{ opacity: 2, x: 0 }}
-                                exit={{ opacity: 0, x: 200 }}
-                                transition={{ duration: 2 }}
-                            >
-
-                                <List color={'#A8A8A8'} textAlign={isMobileDevice ? 'center' : 'start'}> 
-                                    <ListItem>I can build you a professional website for your brand or bussiness</ListItem>
-                                    <ListItem>I can optimize your existing websites for better performance</ListItem>
-                                    <ListItem>I can develop you a personal / commercial fullstack responsive website using wordpress</ListItem>
-                                    <ListItem>I can update your existing website and give it a mobile app speed with instant rendering</ListItem>
-                                    <ListItem>I can convert a html side to a single page application using React</ListItem>
-                                    <ListItem>I can integrate third party tools to an existing website such as payment gateways, woocommerce, auto mail responders, etc.</ListItem>
-                                </List>
-                            </motion.div>
-                        </Stack>
-                    </div>
-
-                    <div className="project-highlight-container" id="projects">
-                        <Heading mb="50px" textAlign="center" fontSize="30px">My projects highlight</Heading>
-
-                        <div className="project-list">
-                            <ProjectCard title="wed design" client="Dele balogun" work="Book library" projectImage={Project1} />
-                            <ProjectCard title="Web development" client="Crac World" work="Real Esate website" projectImage={project2} />
-                            <ProjectCard title="wed design" client="Dele balogun" work="Book library" projectImage={Project1} />
-                            <ProjectCard title="Web development" client="Crac World" work="Real Esate website" projectImage={project2} />
-                            <ProjectCard title="wed design" client="Dele balogun" work="Book library" projectImage={Project1} />
-                            <ProjectCard title="Web development" client="Crac World" work="Real Esate website" projectImage={project2} />
-                        </div>
-                    </div>
-                    <div className="divider-container">
-                        <hr />
-                    </div>
-                    <div className="testimonial-container">
-                        <TestimonialSlider />
-                    </div>
-                    <div id="contact">
-                        <footer className="footer-container">
-                            <hr />
-                            <Heading fontSize="28px" color="#FF9142">Get In Touch With Me</Heading>
-                            <address>Mai Adiko, Rayfield Jos</address>
-                            <address>Email: owner@longsaarfrancis.com</address>
-                            <Stack fontSize="25px" direction="row">
-                                <a href="https://www.linkedin.com/in/francis-longsaar-1443b91b3" target="_">
-                                    <Icon as={FaLinkedin} />
-                                </a>
-                                <a href="https://twitter.com/Jahrulezfrancis" target="_">
-                                    <Icon as={FaTwitter} />
-                                </a>
-                            </Stack>
-                            <Text textAlign={'center'}>Copyright © 2023 Longsaar Francis</Text>
-                        </footer>
-                    </div>
-                </Box>
+                </Stack>
             </Box>
-        </Wrapper >
+
+            <Stack spacing={5} justify='center' align='center' textAlign='center' mt="50px" background='var(--Blur_ninja, #121632)' position={"relative"} height={'auto'} padding={8}>
+                <Image position='absolute' src={Background} left={10} />
+                <Image width={100} src={StartUpLogo} />
+                <Heading fontSize='25px' color='#DD226D'>Are you looking for skilled developer to work with?</Heading>
+                <Heading color='white'>You are in the right place!</Heading>
+                <Text width={!isMobileDevice ? "600px" : '300px'} color='white'>With a drive for continuous learning and a deep interest in emerging web technologies, I'm well-prepared bring your vision to life.Let's work together to create exceptional web experiences.</Text>
+            </Stack>
+
+            <Flex wrap='wrap' alignItems='center' justify='space-around'>
+                <Box display='flex' justifyContent='center' alignItems='center'
+                    borderColor="#8C4CF5"
+                    position="relative"
+                    height={527} width={500} >
+                    <Box width='300px' borderRadius={"500%"} zIndex='1' height='200px' position='absolute' background='white' left='80%' top={10} right='0' />
+                    <Box borderWidth="20px"
+                        borderColor="#8C4CF5"
+                        position="absolute" borderRadius="50%"
+                        height={527} width={500} />
+                    <Box borderWidth="35px"
+                        borderColor="#DD226D"
+                        position="absolute" left='100px' top='20%' borderRadius="50%"
+                        height={330} width={330} />
+                    <Image position='absolute' zIndex={2} src={MobileDevice} />
+                </Box>
+                <Stack>
+                    <Heading>Building a new product?</Heading>
+                    <Text>I can help you launch your product with greater value. I am specialised in</Text>
+                    <List spacing='20px'>
+                        <ListItem>
+                            <ListIcon color='#8C4CF5' as={BsPatchCheckFill} />
+                            Front End development
+                        </ListItem>
+                        <ListItem>
+                            <ListIcon color='#8C4CF5' as={BsPatchCheckFill} />
+                            Mobile App Development
+                        </ListItem>
+                        <ListItem>
+                            <ListIcon color='#8C4CF5' as={BsPatchCheckFill} />
+                            Fullstack dev(React-Js+Firebase)
+                        </ListItem>
+                        <ListItem>
+                            <ListIcon color='#8C4CF5' as={BsPatchCheckFill} />
+                            Wordpress Development
+                        </ListItem>
+                        <ListItem>
+                            <ListIcon color='#8C4CF5' as={BsPatchCheckFill} />
+                            Responsive web design
+                        </ListItem>
+                        <ListItem>
+                            <ListIcon color='#8C4CF5' as={BsPatchCheckFill} />
+                            Progressive web app
+                        </ListItem>
+                        <ListItem>
+                            <ListIcon color='#8C4CF5' as={BsPatchCheckFill} />
+                            Third party integrations(payment gateways, firewalls etc)
+                        </ListItem>
+                        <ListItem>
+                            <ListIcon color='#8C4CF5' as={BsPatchCheckFill} />
+                            Search Engine Optimization
+                        </ListItem>
+                    </List>
+                </Stack>
+            </Flex>
+
+        </Wrapper>
     )
 }
 
 export default LandingPage;
 
 const Wrapper = styled.section`
-    .project-highlight-container{
-        display: flex;
-        width: 100%;
-        flex-direction: column;
-        align-items: center;
-        margin-top: 100px;
-        padding: 10px;
-    }
-    .expertise-container{
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        margin-top: 50px;
-        padding: 20px;
-    }
-    .expertise-container .expertise .animation-container > ul{
-        list-style-type: square;
-    }
-    .project-highlight-container .project-list{
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        justify-content: center;
-        margin: auto;
-        gap: 1em;
-        width: 750px;
-    }
-    @media(max-width: 700px){
-        .project-highlight-container .project-list{
-        width: auto;
-        justify-content: center;
-        align-items: center;
-        grid-template-columns: 1fr;
-        }
-    }
-    @media(min-width: 700px)and (max-width: 1000px){
-        .project-highlight-container .project-list{
-        width: auto;
-        grid-template-columns: 1fr 1fr;
-        }
-    }
-    @media(max-width: 900px){
-        .about{
-            text-align: center;
-        }
-    }
-    .divider-container > hr{
-        display: flex;
-        width: 60%;
-        margin: 20px auto;
-    }
-    .footer-container{
-        margin-top: 100px;
-        padding: 15px;
-        // background: #020220;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 10px;
-    }
-    .footer-container > hr{
-        display: flex;
-        clear: both;
-        width: 100%;
-    }
-    .footer-container > p, .footer-container > address{
-        font-size: 13px;
-    }
-    .testimonial-container{
-        display: flex;
-        justify-content: center;
-        margin: 0px 10px;
-    }
+    h1, h2, h3, h4{
+        font-feature-settings: 'salt' on, 'liga' of
+        font-style: normal;
+        font-weight: 800;
+    }   
 `
