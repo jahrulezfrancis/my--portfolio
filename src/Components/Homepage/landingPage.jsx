@@ -1,4 +1,4 @@
-import { Box, Heading, Stack, Text, Image, Spacer, Icon, List, ListItem, useMediaQuery, HStack, VStack, Button, Flex, ListIcon } from "@chakra-ui/react";
+import { Box, Heading, Stack, Text, Image, Spacer, Icon, List, ListItem, useMediaQuery, HStack, VStack, Button, Flex, ListIcon, Grid, GridItem } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import ProfilePicture from "../../Assets/Images/Portcover.jpg"
 import PinkElements from "../../Assets/Images/header-element.svg"
@@ -128,6 +128,16 @@ function LandingPage() {
             <Box minH="150px" background="linear-gradient(235deg, #DD226D 33.97%, #8C4CF5 103.21%)">
                 <Heading fontWeight={700} fontSize={40}>Still Skeptical?</Heading>
                 <Text>You can checkout my recently completed projects</Text>
+            </Box>
+            <Box>
+                <Grid>
+                    <GridItem>
+                        <ProjectCard projectImage={Project1} client='Dele Balogun' projectType='Web Development'  />
+                    </GridItem>
+                    <GridItem></GridItem>
+                    <GridItem></GridItem>
+                    <GridItem></GridItem>
+                </Grid>
             </Box>
         </Wrapper>
     )
