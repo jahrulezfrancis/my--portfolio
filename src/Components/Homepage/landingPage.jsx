@@ -6,16 +6,27 @@ import Background from "../../Assets/Images/background-image.svg"
 import MobileDevice from "../../Assets/Images/iPhone-X.svg"
 import StartUpLogo from "../../Assets/Images/web-startup.svg"
 import styled from "@emotion/styled";
+import Developer from "../../Assets/Images/developer-set-up.svg"
 import ProjectCard from "../Common/ProjectCard";
 import Project1 from "../../Assets/Images/Img.svg";
 import project2 from "../../Assets/Images/Img(1).svg";
-import { FaLinkedin, FaTwitter } from "react-icons/fa";
+import { FaLinkedin, FaTwitter, FaReact, FaCss3Alt, FaHtml5, FaWordpressSimple } from "react-icons/fa";
 import TestimonialSlider from "../Common/Slider/Slider";
-import { BsPatchCheckFill } from "react-icons/bs";
+import { BsFillFileMedicalFill, BsPatchCheckFill } from "react-icons/bs";
+import { SiJavascript, SiRedux } from "react-icons/si"
 
 
 
-function LandingPage(id) {
+function LandingPage() {
+
+    function TextIcon({ icon, label }) {
+        return (
+            <HStack>
+                <Icon as={icon} />
+                <Text>{label}</Text>
+            </HStack>
+        )
+    }
     const [isMobileDevice] = useMediaQuery('(max-width: 700px)')
     const [isTabletDevice] = useMediaQuery('(min-width: 600px and max-width: 1000px)')
     return (
@@ -81,10 +92,6 @@ function LandingPage(id) {
                         </ListItem>
                         <ListItem>
                             <ListIcon color='#8C4CF5' as={BsPatchCheckFill} />
-                            Responsive web design
-                        </ListItem>
-                        <ListItem>
-                            <ListIcon color='#8C4CF5' as={BsPatchCheckFill} />
                             Progressive web app
                         </ListItem>
                         <ListItem>
@@ -99,6 +106,29 @@ function LandingPage(id) {
                 </Stack>
             </Flex>
 
+            <HStack gap={30} justify='center' background='var(--Pale_ninja, #F4F5F7)' minH={813}>
+                <Stack justify='flex-start' align='flex-start' width={400}>
+                    <Heading fontSize={48} color="#121632">Technical Skills</Heading>
+                    <Text>I have strong knowledge and experience using these technologies to build quality web systems.</Text>
+                    <Flex width='100%' justify='space-between'>
+                        <VStack align='start' gap={5} fontSize={18}>
+                            <TextIcon icon={SiJavascript} label='JavaScript' />
+                            <TextIcon icon={FaReact} label='React JS' />
+                            <TextIcon icon={FaHtml5} label='HTML' />
+                        </VStack>
+                        <VStack align="start" gap={5} fontSize={18}>
+                            <TextIcon icon={FaWordpressSimple} label='Wordpress' />
+                            <TextIcon icon={FaCss3Alt} label='CSS' />
+                            <TextIcon icon={SiRedux} label='Redux' />
+                        </VStack>
+                    </Flex>
+                </Stack>
+                <Image width={500} src={Developer} alt="developer" />
+            </HStack>
+            <Box minH="150px" background="linear-gradient(235deg, #DD226D 33.97%, #8C4CF5 103.21%)">
+                <Heading fontWeight={700} fontSize={40}>Still Skeptical?</Heading>
+                <Text>You can checkout my recently completed projects</Text>
+            </Box>
         </Wrapper>
     )
 }
