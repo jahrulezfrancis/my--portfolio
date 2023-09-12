@@ -1,4 +1,4 @@
-import { Box, Heading, Stack, Text, Image, Center, Icon, List, ListItem, useMediaQuery, HStack, VStack, Button, Flex, ListIcon, Grid, GridItem, Container } from "@chakra-ui/react";
+import { Box, Heading, Stack, Text, Image, Center, Icon, List, ListItem, useMediaQuery, HStack, VStack, Button, Flex, ListIcon, Grid, GridItem, Container, Divider, Spacer } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import ProfilePicture from "../../Assets/Images/Portcover.jpg"
 import PinkElements from "../../Assets/Images/header-element.svg"
@@ -15,6 +15,7 @@ import TestimonialSlider from "../Common/Slider/Slider";
 import { BsFillFileMedicalFill, BsPatchCheckFill } from "react-icons/bs";
 import { SiJavascript, SiRedux } from "react-icons/si"
 import { ProjectList } from "../Common/project-list";
+import { Link } from "react-router-dom";
 
 
 
@@ -56,7 +57,7 @@ function LandingPage() {
                 <Text width={!isMobileDevice ? "600px" : '300px'} color='white'>With a drive for continuous learning and a deep interest in emerging web technologies, I'm well-prepared bring your vision to life.Let's work together to create exceptional web experiences.</Text>
             </Stack>
 
-            <Flex wrap='wrap' alignItems='center' justify='space-around' overflow='hidden'>
+            <Flex minH='808px' wrap='wrap' alignItems='center' justify='space-around' overflow='hidden'>
                 <Box display='flex' justifyContent='center' alignItems='center'
                     borderColor="#8C4CF5"
                     position="relative"
@@ -143,13 +144,40 @@ function LandingPage() {
                     })}
                 </Grid>
             </Center>
-            <Stack justify='center' align='center' textAlign='center' minH={'200px'} background='var(--Pale_ninja, #F4F5F7)'>
-                <Center>
-                    <div>
-                        <Heading>See what my clients are saying about me.</Heading>
-                        <Text>Take a look at what my clients have to say about their experience working with me and feel free to reach out if you have any questions or would like to learn more.</Text>
-                    </div>
-                </Center>
+            <section>
+                <Stack justify='center' align='center' textAlign='center' minH={'500px'} background='var(--Pale_ninja, #F4F5F7)'>
+                    <Center width={isMobileDevice ? '300px' : '600px'}>
+                        <div>
+                            <Heading>Testimonials</Heading>
+                            {/* <Heading>See what my clients are saying about me.</Heading> */}
+                            <Text fontSize='18px'>Take a look at what my clients have to say about their experience working with me and feel free to reach out if you have any questions or would like to learn more.</Text>
+                        </div>
+                    </Center>
+                    <TestimonialSlider />
+                </Stack>
+            </section>
+            <Stack p='20px 0px' align='center' justify='center' minH='150px' background='var(--Blur_ninja, #121632)'>
+                <List listStyleType='initial' color='white'>
+                    <Flex gap={10}>
+                        <ListItem _before={{ content: "''" }}>
+                            <Link to="#about">About</Link>
+                        </ListItem>
+                        <ListItem>
+                            <Link to="#about">Services</Link>
+                        </ListItem>
+                        <ListItem>
+                            <Link to="#about">Expertise</Link>
+                        </ListItem>
+                        <ListItem>
+                            <Link to="#about">Projects</Link>
+                        </ListItem>
+                    </Flex>
+                </List>
+                <Spacer />
+                <Divider width='90%' />
+                <Stack>
+                    <Text textTransform='capitalize' textAlign='start' color='white'>© 2021 Longsaar Francis. All Right reserved</Text>
+                </Stack>
             </Stack>
         </Wrapper>
     )
