@@ -1,4 +1,4 @@
-import { Box, Heading, Stack, Text, Image, Spacer, Icon, List, ListItem, useMediaQuery, HStack, VStack, Button, Flex, ListIcon, Grid, GridItem } from "@chakra-ui/react";
+import { Box, Heading, Stack, Text, Image, Center, Icon, List, ListItem, useMediaQuery, HStack, VStack, Button, Flex, ListIcon, Grid, GridItem, Container } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import ProfilePicture from "../../Assets/Images/Portcover.jpg"
 import PinkElements from "../../Assets/Images/header-element.svg"
@@ -14,6 +14,7 @@ import { FaLinkedin, FaTwitter, FaReact, FaCss3Alt, FaHtml5, FaWordpressSimple }
 import TestimonialSlider from "../Common/Slider/Slider";
 import { BsFillFileMedicalFill, BsPatchCheckFill } from "react-icons/bs";
 import { SiJavascript, SiRedux } from "react-icons/si"
+import { ProjectList } from "../Common/project-list";
 
 
 
@@ -28,14 +29,15 @@ function LandingPage() {
         )
     }
     const [isMobileDevice] = useMediaQuery('(max-width: 700px)')
-    const [isTabletDevice] = useMediaQuery('(min-width: 600px and max-width: 1000px)')
+    const [isMediumDevice] = useMediaQuery('(max-width: 1005px) and (min-width: 600px)')
+    const [isTabletDevice] = useMediaQuery('(max-width: 1000px) and (min-width: 600px)')
     return (
         <Wrapper>
             <Box position='relative'>
                 <Heading textAlign='center' mt={10}>Bring your ideas into life with a perfect web signature</Heading>
                 <Image src={PinkElements} position='absolute' />
                 <Stack wrap={"wrap"} justify='center' mt="100px" gap={10} direction={isMobileDevice ? 'column' : "row"}>
-                    <VStack spacing={10} align='start' width={540}>
+                    <VStack spacing={10} align='start' width={isMobileDevice ? '90%' : 540}>
                         <Heading >Have you heard about me?</Heading>
                         <Text>I am a front-end engineer with a solid focus on building smart web systems with over 2 years of industrial experience building stunning web solutions. I have a strong foundation in front-end engineering and a gracious passion for web development, which has enabled me to build dynamic, responsive and powerful web applications for multiple industries. I spend quality time on reading user-experience reports to enhance my development process for a better experience. I am solemn with deadlines and don’t take projects of any type or size for granted. My development process is basically user-driven with an adoptable Software Development Life Circle(SDLC). I am actively seeking to learn and apply new technologies to advance my career and the establishments of my client. </Text>
                         <Button color='white' borderRadius='6px' background='var(--Pink_ninja, #DD226D)'>Download resume</Button>
@@ -54,12 +56,12 @@ function LandingPage() {
                 <Text width={!isMobileDevice ? "600px" : '300px'} color='white'>With a drive for continuous learning and a deep interest in emerging web technologies, I'm well-prepared bring your vision to life.Let's work together to create exceptional web experiences.</Text>
             </Stack>
 
-            <Flex wrap='wrap' alignItems='center' justify='space-around'>
+            <Flex wrap='wrap' alignItems='center' justify='space-around' overflow='hidden'>
                 <Box display='flex' justifyContent='center' alignItems='center'
                     borderColor="#8C4CF5"
                     position="relative"
                     height={527} width={500} >
-                    <Box width='300px' borderRadius={"500%"} zIndex='1' height='200px' position='absolute' background='white' left='80%' top={10} right='0' />
+                    <Box width='50px' borderRadius={"500%"} zIndex='1' height='65px' position='absolute' background='white' left='80%' top={10} right='0' />
                     <Box borderWidth="20px"
                         borderColor="#8C4CF5"
                         position="absolute" borderRadius="50%"
@@ -106,7 +108,7 @@ function LandingPage() {
                 </Stack>
             </Flex>
 
-            <HStack gap={30} justify='center' background='var(--Pale_ninja, #F4F5F7)' minH={813}>
+            <HStack wrap='wrap' gap={30} justify='center' background='var(--Pale_ninja, #F4F5F7)' minH={813}>
                 <Stack justify='flex-start' align='flex-start' width={400}>
                     <Heading fontSize={48} color="#121632">Technical Skills</Heading>
                     <Text>I have strong knowledge and experience using these technologies to build quality web systems.</Text>
@@ -125,20 +127,30 @@ function LandingPage() {
                 </Stack>
                 <Image width={500} src={Developer} alt="developer" />
             </HStack>
-            <Box minH="150px" background="linear-gradient(235deg, #DD226D 33.97%, #8C4CF5 103.21%)">
+            <Box padding='25px 0px' textAlign='center' minH="150px" background="linear-gradient(235deg, #DD226D 33.97%, #8C4CF5 103.21%)">
                 <Heading fontWeight={700} fontSize={40}>Still Skeptical?</Heading>
                 <Text>You can checkout my recently completed projects</Text>
             </Box>
-            <Box>
-                <Grid>
-                    <GridItem>
-                        <ProjectCard projectImage={Project1} client='Dele Balogun' projectType='Web Development'  />
-                    </GridItem>
-                    <GridItem></GridItem>
-                    <GridItem></GridItem>
-                    <GridItem></GridItem>
+            <Center m={'30px 0px'}>
+                <Grid gap={10} width={!isMobileDevice && !isTabletDevice ? '1000px' : '90%'}
+                    gridTemplateColumns={isMobileDevice ? 'repeat(1, 1fr)' : isMediumDevice ? 'repeat(2, 1fr)' : 'repeat(3, 1fr)'}>
+                    {ProjectList.map((item) => {
+                        return (
+                            <GridItem id={item.id}>
+                                <ProjectCard projectImage={item.projectImage} client={item.clientName} projectType={item.projectType} />
+                            </GridItem>
+                        )
+                    })}
                 </Grid>
-            </Box>
+            </Center>
+            <Stack justify='center' align='center' textAlign='center' minH={'200px'} background='var(--Pale_ninja, #F4F5F7)'>
+                <Center>
+                    <div>
+                        <Heading>See what my clients are saying about me.</Heading>
+                        <Text>Take a look at what my clients have to say about their experience working with me and feel free to reach out if you have any questions or would like to learn more.</Text>
+                    </div>
+                </Center>
+            </Stack>
         </Wrapper>
     )
 }
