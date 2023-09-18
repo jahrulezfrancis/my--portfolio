@@ -1,5 +1,4 @@
-import { Box, Heading, Stack, Text, Image, Center, Icon, List, ListItem, useMediaQuery, HStack, VStack, Button, Flex, ListIcon, Grid, GridItem, Container, Divider, Spacer } from "@chakra-ui/react";
-import { motion } from "framer-motion";
+import { Box, Heading, Stack, Text, Image, Center, Icon, List, ListItem, useMediaQuery, HStack, VStack, Button, Flex, ListIcon, Grid, GridItem, Divider, Spacer } from "@chakra-ui/react";
 import ProfilePicture from "../../Assets/Images/Portcover.jpg"
 import PinkElements from "../../Assets/Images/header-element.svg"
 import Background from "../../Assets/Images/background-image.svg"
@@ -16,11 +15,15 @@ import { BsFillFileMedicalFill, BsPatchCheckFill } from "react-icons/bs";
 import { SiJavascript, SiRedux } from "react-icons/si"
 import { ProjectList } from "../Common/project-list";
 import { Link } from "react-router-dom";
+import BounceAnimation from "../Common/AnimationContainers/BounceAnimation";
+import HoverAnimate from "../Common/AnimationContainers/HoverAnimate";
+import SlideInAnimate from "../Common/AnimationContainers/SlideInAnimation";
+
+
 
 
 
 function LandingPage() {
-
     function TextIcon({ icon, label }) {
         return (
             <HStack>
@@ -109,25 +112,30 @@ function LandingPage() {
                 </Stack>
             </Flex>
 
-            <HStack wrap='wrap' gap={30} justify='center' background='var(--Pale_ninja, #F4F5F7)' minH={813}>
-                <Stack justify='flex-start' align='flex-start' width={400}>
-                    <Heading fontSize={48} color="#121632">Technical Skills</Heading>
-                    <Text>I have strong knowledge and experience using these technologies to build quality web systems.</Text>
-                    <Flex width='100%' justify='space-between'>
-                        <VStack align='start' gap={5} fontSize={18}>
-                            <TextIcon icon={SiJavascript} label='JavaScript' />
-                            <TextIcon icon={FaReact} label='React JS' />
-                            <TextIcon icon={FaHtml5} label='HTML' />
-                        </VStack>
-                        <VStack align="start" gap={5} fontSize={18}>
-                            <TextIcon icon={FaWordpressSimple} label='Wordpress' />
-                            <TextIcon icon={FaCss3Alt} label='CSS' />
-                            <TextIcon icon={SiRedux} label='Redux' />
-                        </VStack>
-                    </Flex>
-                </Stack>
-                <Image width={500} src={Developer} alt="developer" />
-            </HStack>
+            <SlideInAnimate child={
+                <>
+                    <HStack wrap='wrap' gap={30} justify='center' background='var(--Pale_ninja, #F4F5F7)' minH={813}>
+                        <Stack justify='flex-start' align='flex-start' width={400}>
+                            <Heading fontSize={48} color="#121632">Technical Skills</Heading>
+                            <Text>I have strong knowledge and experience using these technologies to build quality web systems.</Text>
+                            <Flex width='100%' justify='space-between'>
+                                <VStack align='start' gap={5} fontSize={18}>
+                                    <TextIcon icon={SiJavascript} label='JavaScript' />
+                                    <TextIcon icon={FaReact} label='React JS' />
+                                    <TextIcon icon={FaHtml5} label='HTML' />
+                                </VStack>
+                                <VStack align="start" gap={5} fontSize={18}>
+                                    <TextIcon icon={FaWordpressSimple} label='Wordpress' />
+                                    <TextIcon icon={FaCss3Alt} label='CSS' />
+                                    <TextIcon icon={SiRedux} label='Redux' />
+                                </VStack>
+                            </Flex>
+                        </Stack>
+                        <Image width={500} src={Developer} alt="developer" />
+                    </HStack>
+                </>
+            } />
+
             <Box padding='25px 0px' textAlign='center' minH="150px" background="linear-gradient(235deg, #DD226D 33.97%, #8C4CF5 103.21%)">
                 <Heading fontWeight={700} fontSize={40}>Still Skeptical?</Heading>
                 <Text>You can checkout my recently completed projects</Text>
@@ -138,7 +146,8 @@ function LandingPage() {
                     {ProjectList.map((item) => {
                         return (
                             <GridItem id={item.id}>
-                                <ProjectCard projectImage={item.projectImage} client={item.clientName} projectType={item.projectType} />
+                                <HoverAnimate child={
+                                    <ProjectCard projectImage={item.projectImage} client={item.clientName} projectType={item.projectType} />} />
                             </GridItem>
                         )
                     })}
@@ -147,11 +156,14 @@ function LandingPage() {
             <section>
                 <Stack justify='center' align='center' textAlign='center' minH={'500px'} background='var(--Pale_ninja, #F4F5F7)'>
                     <Center width={isMobileDevice ? '300px' : '600px'}>
-                        <div>
-                            <Heading>Testimonials</Heading>
-                            {/* <Heading>See what my clients are saying about me.</Heading> */}
-                            <Text fontSize='18px'>Take a look at what my clients have to say about their experience working with me and feel free to reach out if you have any questions or would like to learn more.</Text>
-                        </div>
+                        <BounceAnimation child={
+                            <>
+                                <Heading>Testimonials</Heading>
+                                {/* <Heading>See what my clients are saying about me.</Heading> */}
+                                <Text fontSize='18px'>Take a look at what my clients have to say about their experience working with me and feel free to reach out if you have any questions or would like to learn more.</Text>
+                            </>
+                        } />
+
                     </Center>
                     <TestimonialSlider />
                 </Stack>
