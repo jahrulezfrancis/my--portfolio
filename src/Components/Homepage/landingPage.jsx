@@ -1,4 +1,4 @@
-import { Box, Heading, Stack, Text, Image, Center, Icon, List, ListItem, useMediaQuery, HStack, VStack, Button, Flex, ListIcon, Grid, GridItem, Divider, Spacer } from "@chakra-ui/react";
+import { Box, Heading, Stack, Text, Image, Center, Icon, List, ListItem, useMediaQuery, HStack, VStack, Button, Flex, ListIcon, Grid, GridItem, } from "@chakra-ui/react";
 import ProfilePicture from "../../Assets/Images/Portcover.jpg"
 import PinkElements from "../../Assets/Images/header-element.svg"
 import Background from "../../Assets/Images/background-image.svg"
@@ -11,13 +11,14 @@ import Project1 from "../../Assets/Images/Img.svg";
 import project2 from "../../Assets/Images/Img(1).svg";
 import { FaLinkedin, FaTwitter, FaReact, FaCss3Alt, FaHtml5, FaWordpressSimple } from "react-icons/fa";
 import TestimonialSlider from "../Common/Slider/Slider";
-import { BsFillFileMedicalFill, BsPatchCheckFill } from "react-icons/bs";
+import { BsFillFileMedicalFill, BsGithub, BsPatchCheckFill } from "react-icons/bs";
 import { SiJavascript, SiRedux } from "react-icons/si"
 import { ProjectList } from "../Common/project-list";
 import { Link } from "react-router-dom";
 import BounceAnimation from "../Common/AnimationContainers/BounceAnimation";
 import HoverAnimate from "../Common/AnimationContainers/HoverAnimate";
 import SlideInAnimate from "../Common/AnimationContainers/SlideInAnimation";
+import BasicSlideAnimation from "../Common/AnimationContainers/SlideNormAnimation";
 
 
 
@@ -40,16 +41,17 @@ function LandingPage() {
             <Box position='relative'>
                 <Heading textAlign='center' mt={10}>Bring your ideas into life with a perfect web signature</Heading>
                 <Image src={PinkElements} position='absolute' />
-                <Stack wrap={"wrap"} justify='center' mt="100px" gap={10} direction={isMobileDevice ? 'column' : "row"}>
-                    <VStack spacing={10} align='start' width={isMobileDevice ? '90%' : 540}>
-                        <Heading >Have you heard about me?</Heading>
-                        <Text>I am a front-end engineer with a solid focus on building smart web systems with over 2 years of industrial experience building stunning web solutions. I have a strong foundation in front-end engineering and a gracious passion for web development, which has enabled me to build dynamic, responsive and powerful web applications for multiple industries. I spend quality time on reading user-experience reports to enhance my development process for a better experience. I am solemn with deadlines and don’t take projects of any type or size for granted. My development process is basically user-driven with an adoptable Software Development Life Circle(SDLC). I am actively seeking to learn and apply new technologies to advance my career and the establishments of my client. </Text>
-                        <Button color='white' borderRadius='6px' background='var(--Pink_ninja, #DD226D)'>Download resume</Button>
-                    </VStack>"
-                    <Image borderRadius='15px' width={486} objectFit='contain' height="500px" src={ProfilePicture} />
-                    <Image src={PinkElements} right='10' top={'600'} position='absolute' />
-
-                </Stack>
+                <BounceAnimation child={<>
+                    <Stack wrap={"wrap"} justify='center' mt="100px" gap={10} direction={isMobileDevice ? 'column' : "row"}>
+                        <VStack spacing={10} align='start' width={isMobileDevice ? '90%' : 540}>
+                            <Heading >Have you heard about me?</Heading>
+                            <Text>I am a front-end engineer with a solid focus on building smart web systems with over 2 years of industrial experience building stunning web solutions. I have a strong foundation in front-end engineering and a gracious passion for web development, which has enabled me to build dynamic, responsive and powerful web applications for multiple industries. I spend quality time on reading user-experience reports to enhance my development process for a better experience. I am solemn with deadlines and don’t take projects of any type or size for granted. My development process is basically user-driven with an adoptable Software Development Life Circle(SDLC). I am actively seeking to learn and apply new technologies to advance my career and the establishments of my client. </Text>
+                            <Button color='white' borderRadius='6px' background='var(--Pink_ninja, #DD226D)'>Download resume</Button>
+                        </VStack>"
+                        <Image borderRadius='15px' width={486} objectFit='contain' height="500px" src={ProfilePicture} />
+                    </Stack>
+                </>} />
+                <Image src={PinkElements} right='10' top={'600'} position='absolute' />
             </Box>
 
             <Stack spacing={5} justify='center' align='center' textAlign='center' mt="50px" background='var(--Blur_ninja, #121632)' position={"relative"} height={'auto'} padding={8}>
@@ -61,55 +63,65 @@ function LandingPage() {
             </Stack>
 
             <Flex minH='808px' wrap='wrap' alignItems='center' justify='space-around' overflow='hidden'>
-                <Box display='flex' justifyContent='center' alignItems='center'
-                    borderColor="#8C4CF5"
-                    position="relative"
-                    height={527} width={500} >
-                    <Box width='50px' borderRadius={"500%"} zIndex='1' height='65px' position='absolute' background='white' left='80%' top={10} right='0' />
-                    <Box borderWidth="20px"
-                        borderColor="#8C4CF5"
-                        position="absolute" borderRadius="50%"
-                        height={527} width={500} />
-                    <Box borderWidth="35px"
-                        borderColor="#DD226D"
-                        position="absolute" left='100px' top='20%' borderRadius="50%"
-                        height={330} width={330} />
-                    <Image position='absolute' zIndex={2} src={MobileDevice} />
-                </Box>
-                <Stack>
-                    <Heading>Building a new product?</Heading>
-                    <Text>I can help you launch your product with greater value. I am specialised in</Text>
-                    <List spacing='20px'>
-                        <ListItem>
-                            <ListIcon color='#8C4CF5' as={BsPatchCheckFill} />
-                            Front End development
-                        </ListItem>
-                        <ListItem>
-                            <ListIcon color='#8C4CF5' as={BsPatchCheckFill} />
-                            Mobile App Development
-                        </ListItem>
-                        <ListItem>
-                            <ListIcon color='#8C4CF5' as={BsPatchCheckFill} />
-                            Fullstack dev(React-Js+Firebase)
-                        </ListItem>
-                        <ListItem>
-                            <ListIcon color='#8C4CF5' as={BsPatchCheckFill} />
-                            Wordpress Development
-                        </ListItem>
-                        <ListItem>
-                            <ListIcon color='#8C4CF5' as={BsPatchCheckFill} />
-                            Progressive web app
-                        </ListItem>
-                        <ListItem>
-                            <ListIcon color='#8C4CF5' as={BsPatchCheckFill} />
-                            Third party integrations(payment gateways, firewalls etc)
-                        </ListItem>
-                        <ListItem>
-                            <ListIcon color='#8C4CF5' as={BsPatchCheckFill} />
-                            Search Engine Optimization
-                        </ListItem>
-                    </List>
-                </Stack>
+                <BasicSlideAnimation child={
+                    <>
+                        <Box display='flex' justifyContent='center' alignItems='center'
+                            borderColor="#8C4CF5"
+                            position="relative"
+                            height={527} width={500} >
+                            <Box width='50px' borderRadius={"500%"} zIndex='1' height='65px' position='absolute' background='white' left='80%' top={10} right='0' />
+                            <Box borderWidth="20px"
+                                borderColor="#8C4CF5"
+                                position="absolute" borderRadius="50%"
+                                height={527} width={500} />
+                            <Box borderWidth="35px"
+                                borderColor="#DD226D"
+                                position="absolute" left='100px' top='20%' borderRadius="50%"
+                                height={330} width={330} />
+                            <Image position='absolute' zIndex={2} src={MobileDevice} />
+                        </Box>
+                    </>
+                } />
+
+                <SlideInAnimate child={
+                    <>
+                        <Stack>
+                            <Heading>Building a new product?</Heading>
+                            <Text>I can help you launch your product with greater value. I am specialised in</Text>
+                            <List spacing='20px'>
+                                <ListItem>
+                                    <ListIcon color='#8C4CF5' as={BsPatchCheckFill} />
+                                    Front End development
+                                </ListItem>
+                                <ListItem>
+                                    <ListIcon color='#8C4CF5' as={BsPatchCheckFill} />
+                                    Mobile App Development
+                                </ListItem>
+                                <ListItem>
+                                    <ListIcon color='#8C4CF5' as={BsPatchCheckFill} />
+                                    Fullstack dev(React-Js+Firebase)
+                                </ListItem>
+                                <ListItem>
+                                    <ListIcon color='#8C4CF5' as={BsPatchCheckFill} />
+                                    Wordpress Development
+                                </ListItem>
+                                <ListItem>
+                                    <ListIcon color='#8C4CF5' as={BsPatchCheckFill} />
+                                    Progressive web app
+                                </ListItem>
+                                <ListItem>
+                                    <ListIcon color='#8C4CF5' as={BsPatchCheckFill} />
+                                    Third party integrations(payment gateways, firewalls etc)
+                                </ListItem>
+                                <ListItem>
+                                    <ListIcon color='#8C4CF5' as={BsPatchCheckFill} />
+                                    Search Engine Optimization
+                                </ListItem>
+                            </List>
+                        </Stack>
+                    </>
+                } />
+
             </Flex>
 
             <SlideInAnimate child={
@@ -168,28 +180,22 @@ function LandingPage() {
                     <TestimonialSlider />
                 </Stack>
             </section>
-            <Stack p='20px 0px' align='center' justify='center' minH='150px' background='var(--Blur_ninja, #121632)'>
-                <List listStyleType='initial' color='white'>
-                    <Flex gap={10}>
-                        <ListItem _before={{ content: "''" }}>
-                            <Link to="#about">About</Link>
-                        </ListItem>
-                        <ListItem>
-                            <Link to="#about">Services</Link>
-                        </ListItem>
-                        <ListItem>
-                            <Link to="#about">Expertise</Link>
-                        </ListItem>
-                        <ListItem>
-                            <Link to="#about">Projects</Link>
-                        </ListItem>
-                    </Flex>
-                </List>
-                <Spacer />
-                <Divider width='90%' />
-                <Stack>
-                    <Text textTransform='capitalize' textAlign='start' color='white'>© 2021 Longsaar Francis. All Right reserved</Text>
-                </Stack>
+            <Stack p='20px 0px' align='center' justify='center' minH='100px' background='var(--Blur_ninja, #121632)'>
+                <HStack align='center' spacing={5} color='white' fontSize={35}>
+
+                    <Link target="blank" to='https://github.com/jahrulezfrancis'>
+                        <Icon as={BsGithub} />
+                    </Link>
+
+                    <Link target="blank" to="https://www.linkedin.com/in/francis-longsaar-1443b91b3/">
+                        <Icon as={FaLinkedin} />
+                    </Link>
+
+                    <Link target="blank" to="https://twitter.com/Jahrulezfrancis">
+                        <Icon as={FaTwitter} />
+                    </Link>
+                </HStack>
+                <Text textTransform='capitalize' textAlign='start' color='white'>© 2021 Longsaar Francis. All Right reserved</Text>
             </Stack>
         </Wrapper>
     )
