@@ -34,7 +34,8 @@ const Wrapper = styled.section`
             font-weight: 500;
             line-height: normal;
             text-transform: uppercase;
-            box-shadow: 5px 5px 5px #010222;
+            // background: var(--Blur_ninja, #121632);
+            box-shadow: 2px 2px 2px #010222;
     }
     .navbar-container .nav-links
     .donate-btn{
