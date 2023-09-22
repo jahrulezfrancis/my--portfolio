@@ -12,7 +12,7 @@ import project2 from "../../Assets/Images/Img(1).svg";
 import { FaLinkedin, FaTwitter, FaReact, FaCss3Alt, FaHtml5, FaWordpressSimple } from "react-icons/fa";
 import TestimonialSlider from "../Common/Slider/Slider";
 import { BsFillFileMedicalFill, BsGithub, BsPatchCheckFill } from "react-icons/bs";
-import { SiJavascript, SiRedux } from "react-icons/si"
+import { SiDart, SiJavascript, SiRedux } from "react-icons/si"
 import { ProjectList } from "../Common/project-list";
 import { Link } from "react-router-dom";
 import BounceAnimation from "../Common/AnimationContainers/BounceAnimation";
@@ -134,12 +134,12 @@ function LandingPage() {
                                 <VStack align='start' gap={5} fontSize={18}>
                                     <TextIcon icon={SiJavascript} label='JavaScript' />
                                     <TextIcon icon={FaReact} label='React JS' />
-                                    <TextIcon icon={FaHtml5} label='HTML' />
+                                    <TextIcon icon={SiDart} label='Dart' />
                                 </VStack>
                                 <VStack align="start" gap={5} fontSize={18}>
                                     <TextIcon icon={FaWordpressSimple} label='Wordpress' />
+                                    <TextIcon icon={FaHtml5} label='HTMl' />
                                     <TextIcon icon={FaCss3Alt} label='CSS' />
-                                    <TextIcon icon={SiRedux} label='Redux' />
                                 </VStack>
                             </Flex>
                         </Stack>
